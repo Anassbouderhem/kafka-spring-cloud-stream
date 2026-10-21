@@ -1,6 +1,10 @@
 package net.bouderhem.kafkaspringcloudstream.controllers;
 
 import net.bouderhem.kafkaspringcloudstream.events.PageEvent;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.stream.function.StreamBridge;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
 import java.util.Random;
@@ -16,6 +20,6 @@ public class PageEventController {
                 new Date(),
                 10+new Random().nextInt(10000));
         streamBridge.send(topic, event);
-        return event;git
+        return event;
     }
 }
